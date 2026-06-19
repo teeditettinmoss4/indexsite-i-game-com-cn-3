@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://teeditettinmoss4.github.io/indexsite-i-game-com-cn-3/sitemap.xml
