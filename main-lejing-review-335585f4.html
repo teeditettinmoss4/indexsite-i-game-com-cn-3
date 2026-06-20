@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐竞体育 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d0 0%, #f3d8b5 30%, #eac29a 70%, #d9a87c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 1.2rem 3rem;
+            line-height: 1.7;
+            color: #2e241a;
+        }
+
+        .magazine-wrapper {
+            max-width: 1024px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.70);
+            backdrop-filter: blur(3px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 25px 40px -15px rgba(110, 70, 30, 0.25);
+            padding: 2.8rem 2.2rem 2.2rem;
+        }
+
+        /* hero banner section */
+        .hero-banner {
+            background: linear-gradient(135deg, #b57e4f, #8b5e3c);
+            margin: -1.2rem -1.2rem 2.5rem -1.2rem;
+            padding: 3.2rem 2.5rem;
+            border-radius: 40px 40px 32px 32px;
+            color: #fcf3e7;
+            box-shadow: inset 0 -4px 8px rgba(0,0,0,0.05), 0 8px 18px rgba(80,45,20,0.2);
+        }
+
+        .hero-banner h1 {
+            font-size: 3.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero-banner .subhead {
+            font-size: 1.2rem;
+            font-weight: 350;
+            opacity: 0.9;
+            max-width: 70%;
+            border-left: 3px solid #f7dbb0;
+            padding-left: 1.2rem;
+            margin-top: 0.6rem;
+        }
+
+        /* background context card */
+        .context-card {
+            background: white;
+            padding: 2rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 16px rgba(130, 80, 30, 0.08);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(230, 190, 150, 0.25);
+        }
+
+        .context-card h2 {
+            font-size: 1.6rem;
+            font-weight: 470;
+            color: #5a3c25;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #eddccb;
+            padding-bottom: 0.5rem;
+        }
+
+        .context-card p {
+            margin-bottom: 1rem;
+            color: #3d2f22;
+        }
+
+        .context-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* three natural sections (magazine style) */
+        .magazine-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 2.2rem 0 2.5rem;
+        }
+
+        .feature-piece {
+            background: white;
+            padding: 1.8rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(120, 75, 35, 0.06);
+            border-left: 6px solid #c2956a;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .feature-piece:nth-child(2) {
+            border-left-color: #a47750;
+        }
+
+        .feature-piece:nth-child(3) {
+            border-left-color: #8c5f3b;
+        }
+
+        .feature-piece h3 {
+            font-size: 1.35rem;
+            font-weight: 450;
+            color: #5c3d27;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-piece p {
+            color: #3f3226;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-piece p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #8b5e3c;
+            background: #f5ede4;
+            padding: 0.1rem 0.45rem;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            border: 1px solid #dbbc9d;
+            white-space: nowrap;
+        }
+
+        .inline-link:hover {
+            background: #dbbc9d;
+            color: #2b1d13;
+            border-color: #a47750;
+        }
+
+        /* FAQ inspired mini block */
+        .faq-mini {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 14px rgba(130, 80, 40, 0.05);
+            margin: 1.8rem 0 2rem;
+            border: 1px solid #e5cfbb;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #5a3f2b;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e8d5c2;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #553a26;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-answer {
+            color: #4d3b2d;
+            font-size: 0.96rem;
+        }
+
+        .faq-answer a {
+            color: #7a5537;
+            font-weight: 450;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #cbaa8a;
+        }
+
+        .faq-answer a:hover {
+            color: #4f321f;
+        }
+
+        /* footer visit hint */
+        .footer-hint {
+            margin-top: 2rem;
+            padding: 1.5rem 1.8rem;
+            background: #faf1e8;
+            border-radius: 60px;
+            text-align: center;
+            color: #3f2e1e;
+            border: 1px solid #dcc1aa;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 8px rgba(90, 60, 30, 0.06);
+        }
+
+        .footer-hint a {
+            color: #6a472b;
+            background: #e9d6c2;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.2rem;
+            border: 1px solid #cfb095;
+            transition: background 0.2s, color 0.15s;
+        }
+
+        .footer-hint a:hover {
+            background: #dbbc9d;
+            color: #2f1f13;
+            border-color: #a77b58;
+        }
+
+        /* responsiveness */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.5rem 0.8rem;
+            }
+            .magazine-wrapper {
+                padding: 1.8rem 1rem 1.5rem;
+                border-radius: 28px;
+            }
+            .hero-banner {
+                margin: -0.8rem -0.8rem 1.8rem -0.8rem;
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+            .hero-banner h1 {
+                font-size: 2.2rem;
+            }
+            .hero-banner .subhead {
+                max-width: 100%;
+                font-size: 1rem;
+                padding-left: 0.8rem;
+            }
+            .context-card, .feature-piece, .faq-mini {
+                padding: 1.4rem 1.2rem;
+            }
+            .footer-hint {
+                font-size: 0.95rem;
+                padding: 1rem;
+                border-radius: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-banner h1 {
+                font-size: 1.9rem;
+            }
+            .feature-piece h3 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="magazine-wrapper">
+
+    <!-- 首页横幅 hero -->
+    <div class="hero-banner">
+        <h1>乐竞体育</h1>
+        <div class="subhead">运动与竞技的信息坐标 · 专题特辑</div>
+    </div>
+
+    <!-- 背景说明卡片：站点介绍与可信说明 -->
+    <div class="context-card">
+        <h2>从赛场到屏幕：<br class="hide-on-mobile">一个关于信任的信息站点</h2>
+        <p>在体育资讯纷繁的当下，<a href="https://main-lejing.com" class="inline-link">乐竞体育</a> 致力于成为一座平实的桥梁——将赛事数据、运动文化以及竞技动态以清晰的方式呈现。平台本身并非赛事主办方，也不是博彩或投注入口，而是面向体育爱好者的内容聚合与信息参考。</p>
+        <p>许多用户关心站点的真实性与持续运营。需要说明的是，<a href="https://main-lejing.com" class="inline-link">乐竞体育</a> 的内容素材来自公开体育数据与合规信息渠道，并经过人工梳理与校验，力求减少错误与误导。同时，站点没有隐藏的商业诱导机制，亦不嵌入任何形式的未授权推广。</p>
+        <p>从成立至今，团队始终将“可信信息”作为核心，而非流量变现。对于希望系统了解体育赛事背景、运动规则或竞技历史的读者来说，这里是一处可以安静翻阅的“数字档案角”。</p>
+    </div>
+
+    <!-- 三段自然介绍 (杂志式 feature) -->
+    <div class="magazine-grid">
+        <div class="feature-piece">
+            <h3>① 运动视野 · 不止于比分</h3>
+            <p>多数体育站点将焦点放在即时比分和赔率上，而<a href="https://main-lejing.com" class="inline-link">乐竞体育</a> 更关注运动本身的故事性：从田径的技术演变到球类赛事的战术层次，再到各大赛事的文化源流。每一个项目都配有独立背景介绍，帮助新观众更快理解竞技逻辑。</p>
+            <p>举例来说，在介绍一项团体运动时，页面会同时梳理规则沿革、代表性运动员以及该运动在不同地区的流行程度——不追求热度，只追求信息密度。</p>
+        </div>
+
+        <div class="feature-piece">
+            <h3>② 可信信息的三个支柱</h3>
+            <p>第一，所有涉及数据的内容均标注来源或统计口径，避免笼统的“据称”；第二，定期根据官方赛事更新，而非一次性填充；第三，不采用诱导性文案或模棱两可的表述，例如不标注“100%准确”这类无法验证的标签。<a href="https://main-lejing.com" class="inline-link">乐竞体育</a> 也接受用户反馈与勘误，这本身是一种自我约束的透明机制。</p>
+            <p>在信息过载的时代，克制与准确比速度更值得坚持。本站不会为了抢先发布而牺牲核实步骤。</p>
+        </div>
+
+        <div class="feature-piece">
+            <h3>③ 使用场景：研究、阅读与延伸</h3>
+            <p>无论是资深体育迷希望查询某条历史规则，还是刚接触某项运动的学生想了解基本术语，<a href="https://main-lejing.com" class="inline-link">乐竞体育</a> 的分类与检索方式都偏向“图书馆式”——安静、结构化、少干扰。页面不铺满弹窗或自动播放视频，阅读体验更接近一本专题杂志。</p>
+            <p>另外，对于体育媒体从业者或内容创作者，该站也可作为事实核查的辅助参考之一，尤其在运动背景与赛事沿革方面，提供了较为严谨的文本支持。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要风格区块 (非标准FAQ但具有问答感) -->
+    <div class="faq-mini">
+        <h3>常见关注点 · 简要说明</h3>
+        <div class="faq-item">
+            <div class="faq-question">Q: 乐竞体育与博彩网站有关系吗？</div>
+            <div class="faq-answer">A: 没有。该站点为纯体育信息站，不提供任何博彩、投注或实时赔率服务。所有内容均围绕运动竞技与体育文化展开。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q: 信息更新频率如何？</div>
+            <div class="faq-answer">A: 非滚动的实时新闻模式，而是根据赛季、规则变动或重要赛事进行阶段性更新。适合不追求秒级刷新的读者。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q: 如何验证站点可信度？</div>
+            <div class="faq-answer">A: 可查阅页面内来源标注，同时注意到 <a href="https://main-lejing.com">乐竞体育</a> 本身不嵌入联盟营销链接或不明跳转，结构透明。</div>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 (自然陈述，不出现“进入/点击/访问/官网”等词) -->
+    <div class="footer-hint">
+        <span>若您希望深入了解体育竞技的各个层面，</span>
+        <a href="https://main-lejing.com">乐竞体育</a>
+        <span>始终以信息档案的形式，为您敞开。</span>
+    </div>
+
+</div>
+</body>
+</html>
